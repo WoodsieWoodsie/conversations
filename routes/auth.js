@@ -10,6 +10,11 @@ var request = require('request');
 var User = require('../models/user');
 
 // GITHUB AUTH
+/*
+ |--------------------------------------------------------------------------
+ | Login with GitHub
+ |--------------------------------------------------------------------------
+ */
 
 router.post('/github', function(req, res) {
   var accessTokenUrl = 'https://github.com/login/oauth/access_token';
@@ -28,7 +33,7 @@ router.post('/github', function(req, res) {
 
     // Step 2. Retrieve profile information about the current user.
     request.get({ url: userApiUrl, qs: accessToken, headers: headers, json: true }, function(err, response, profile) {
-      console.log('profile:', profile);
+      // console.log('profile:', profile);
 
       // Step 3a. Link user accounts.
       if (req.headers.authorization) {
@@ -44,7 +49,8 @@ router.post('/github', function(req, res) {
             }
             user.github = profile.id;
             user.picture = user.picture || profile.avatar_url;
-            user.displayName = user.displayName || profile.name;
+            user.displayName = user.displayName ? user.displayName : profile.name;
+            // console.log("DISP NAME", user.displayName);
             user.save(function() {
               var token = user.createJWT();
               res.send({ token: token });
@@ -61,7 +67,9 @@ router.post('/github', function(req, res) {
           var user = new User();
           user.github = profile.id;
           user.picture = profile.avatar_url;
-          user.displayName = profile.name;
+          console.log("profile.name", profile.name);
+          console.log("profile.login", profile.login);
+          user.displayName = (profile.name !== null) ? profile.name : profile.login;
           user.save(function() {
             var token = user.createJWT();
             res.send({ token: token });

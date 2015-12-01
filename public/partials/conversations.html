@@ -1,7 +1,15 @@
 <h1>Conversations.</h1>
 
 <form>
+  <label for="withWhom">With whom do you wish to converse?</label>
+  <br>
+  <div class="radio" ng-repeat="user in users">
+    <label>
+      <input type="radio" name="optionsRadios" id="{{user._id}}" checked>
+      {{user.displayName}}
+    </label>
+  </div>
   <textarea name="message" id="messageBox" cols="33" rows="5"></textarea>
   <br>
-  <button class="btn btn-default speak">Speak.</button>
+  <button class="btn btn-default speak" ng-click="">Speak.</button>
 </form>

@@ -25,5 +25,12 @@ userSchema.methods.createJWT = function() {
   return jwt.encode(payload, process.env.JWT_SECRET);
 };
 
+userSchema.statics.getAllUsers = function(cb) {
+  User.find( {}, function(err, users) {
+    if(err || !users) return cb(err || 'No users found.');
+    cb(err, users);
+  });
+};
+
 User = mongoose.model('User', userSchema);
 module.exports = User;
