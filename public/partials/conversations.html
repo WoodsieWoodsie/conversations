@@ -1,15 +1,25 @@
 <h1>Conversations.</h1>
 
-<form>
-  <label for="withWhom">With whom do you wish to converse?</label>
-  <br>
-  <div class="radio" ng-repeat="user in users">
-    <label>
-      <input type="radio" name="optionsRadios" id="{{user._id}}" checked>
-      {{user.displayName}}
-    </label>
+<div class="row">
+  <div class="col-xs-12">
+    <form>
+      <label for="withWhom">With whom do you wish to converse?</label>
+      <br>
+      <div class="radio" ng-repeat="user in users">
+        <label>
+          <input type="radio" name="optionsRadios" data-id="{{user._id}}" checked>
+          {{user.displayName}}
+        </label>
+      </div>
+      <textarea name="message" id="messageBox" ng-model="shoutBox" cols="33" rows="5"></textarea>
+      <br>
+      <button class="btn btn-default speak" ng-click="speak()">Speak.</button>
+    </form>
   </div>
-  <textarea name="message" id="messageBox" cols="33" rows="5"></textarea>
-  <br>
-  <button class="btn btn-default speak" ng-click="">Speak.</button>
-</form>
+</div>
+
+<div class="row">
+  <div class="col-xs-12 col-md-4" ng-repeat="conversation in conversations">
+    <h1 class="messageText" ng-repeat="message in conversation"></h1>
+  </div>
+</div>

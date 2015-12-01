@@ -29,3 +29,7 @@
   border-color: darkgray;
   margin-top: 10px; 
 }
+
+.messageText {
+  font-size: 50pt;
+}

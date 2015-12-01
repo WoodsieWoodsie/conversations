@@ -17,4 +17,9 @@ angular.module('conversations')
   }, function(err){
     console.error(err);
   });
+
+  $scope.speak = function(text){
+    console.log("TEXT!", $scope.shoutBox);
+    console.log("ID???", $('input').data('id'));
+  }
 });
