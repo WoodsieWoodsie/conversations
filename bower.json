@@ -1,7 +1,6 @@
 {
   "name": "conversations",
   "description": "",
-  "main": "index.js",
   "authors": [
     "Rachel Wood <r@codinghouse.co>"
   ],
@@ -14,5 +13,12 @@
     "bower_components",
     "test",
     "tests"
-  ]
+  ],
+  "dependencies": {
+    "jquery": "~2.1.4",
+    "angular": "~1.4.8",
+    "bootstrap": "~3.3.6",
+    "angular-ui-router": "ui-router#~0.2.15",
+    "satellizer": "~0.13.1"
+  }
 }
