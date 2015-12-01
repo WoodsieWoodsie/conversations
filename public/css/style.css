@@ -1,3 +1,31 @@
 .container-fluid {
   width: 100%;
 }
+
+.btn {
+  letter-spacing: .5px;
+}
+
+.fb-login {
+  background-color: #3a5795;
+  color: ghostwhite;
+  margin-left: 25px;
+  margin-top: 10px;
+}
+
+.gh-login {
+  background-color: #829aa8;
+  color: ghostwhite;
+  margin-left: 25px;
+  margin-top: 10px;
+}
+
+#messageBox {
+  border-radius: 5px;
+  border-color: darkgray;
+}
+
+.speak {
+  border-color: darkgray;
+  margin-top: 10px; 
+}
