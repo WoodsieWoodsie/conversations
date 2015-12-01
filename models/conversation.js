@@ -33,6 +33,5 @@ conversationSchema.statics.addConversation = function(conversation, cb) {
   });
 };
 
-
 Conversation = mongoose.model('Conversation', conversationSchema);
 module.exports = Conversation;
