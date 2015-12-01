@@ -6,7 +6,7 @@
   "scripts": {
     "setup": "rm -rf public/vendor node_modules && npm i && bower i",
     "start": "node app.js",
-    "post-install": "bower i"
+    "post-install": "bower cache clean && bower i"
   },
   "repository": {
     "type": "git",
